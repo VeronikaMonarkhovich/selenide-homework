@@ -14,6 +14,7 @@ public class DragDropTest {
             $("#column-a").shouldHave(text("B"));
             $("#column-b").shouldHave(text("A"));
     }
+    //тест с actions() не сработал
 
     @Test
     void DragDropIsWorked() {
@@ -22,6 +23,7 @@ public class DragDropTest {
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
     }
+    // а вот dragAndDropTo() - работает
 
 }
 
