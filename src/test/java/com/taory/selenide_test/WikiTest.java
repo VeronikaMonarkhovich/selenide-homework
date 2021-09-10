@@ -1,0 +1,30 @@
+package com.taory.selenide_test;
+
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+
+public class WikiTest {
+    @BeforeAll
+    static void setup() {
+
+        Configuration.startMaximized = true;
+    }
+    @Test
+    void wikiGitHubTest() {
+        open("https://github.com/selenide/selenide");
+
+        $("#wiki-tab").click();
+        $("#wiki-body").shouldHave(text("Soft assertions"));
+        $("#wiki-body").$(byText("Soft assertions")).click();
+        $$(".highlight-source-java").get(3).shouldBe(visible).shouldHave(text("@ExtendWith"));
+        $$(".highlight-source-java").get(4).shouldBe(visible).shouldHave(text("@RegisterExtension"));
+    }
+}
+
+
+
