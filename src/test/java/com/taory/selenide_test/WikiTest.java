@@ -17,12 +17,12 @@ public class WikiTest {
     @Test
     void wikiGitHubTest() {
         open("https://github.com/selenide/selenide");
-
         $("#wiki-tab").click();
-        $("#wiki-body").shouldHave(text("Soft assertions"));
-        $("#wiki-body").$(byText("Soft assertions")).click();
-        $$(".highlight-source-java").get(3).shouldBe(visible).shouldHave(text("@ExtendWith"));
-        $$(".highlight-source-java").get(4).shouldBe(visible).shouldHave(text("@RegisterExtension"));
+        $(".markdown-body ul").$(byText("Soft assertions")).shouldBe(visible).click();
+        $("#wiki-body").shouldHave(text("Using JUnit5 extend test class:"));
+        $(".markdown-body").shouldHave(text("@ExtendWith"));
+        $(".markdown-body").shouldHave(text("@RegisterExtension"));
+
     }
 }
 
