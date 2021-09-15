@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class DragDropTest {
 
     @Test
-    void ActionsIsWorked() {
+    void actionsIsWorked() {
             open("https://the-internet.herokuapp.com/drag_and_drop");
             actions().moveToElement( $("#column-a")).clickAndHold().moveByOffset(301,119).release().perform();
             $("#column-a").shouldHave(text("B"));
@@ -17,7 +17,7 @@ public class DragDropTest {
     //тест с actions() не сработал
 
     @Test
-    void DragDropIsWorked() {
+    void dragDropIsWorked() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").dragAndDropTo("#column-b");
         $("#column-a").shouldHave(text("B"));
